@@ -1,0 +1,20 @@
+/**
+ *
+ * Tooltip-overrides
+ *
+ */
+
+.mdl-tooltip {
+	font-size: 12px;
+	line-height: 1.2;
+	text-align: left;
+	&::first-letter {
+		text-transform: uppercase;
+	}
+	.shortcuts-list-img & {
+		font-size: 14px;
+		&::first-letter {
+			text-transform: lowercase;
+		}
+	}
+}

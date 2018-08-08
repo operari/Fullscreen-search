@@ -1,0 +1,57 @@
+/**
+ *
+ * lang-switch
+ *
+ */
+.lang-switch {
+	position: relative;
+	right: -8px;
+	display: inline-block;
+	box-sizing: border-box;
+	width: 60px;
+	height: 20px;
+	margin-left: auto;
+	padding: 0 3px;
+	border-radius: 10px;
+	background: rgba(0,0,0, .26);
+	&__input {
+		display: none;
+		&:checked + .lang-switch__label	{
+			color: #fff;
+		}
+	}
+	&__label {
+		font-size: 10px;
+		line-height: 20px;
+		position: inherit;
+		z-index: 10;
+		float: left;
+		width: 50%;
+		cursor: pointer;
+		transition: color .3s cubic-bezier(.4, 0, .2, 1);
+		text-align: center;
+		color: #999;
+	}
+	&__toggle {
+		font-size: 12px;
+		line-height: 30px;
+		position: absolute;
+		top: 2px;
+		left: 2px;
+		float: left;
+		width: 50%;
+		height: 16px;
+		cursor: pointer;
+		transition: left .25s cubic-bezier(.4, 0, .2, 1);
+		border-radius: 1px;
+		background-color: #03a9f4;
+		will-change: transform;
+		.lang-switch__input--left:checked ~ & {
+			border-radius: 10px 0 0 10px;
+		}
+		.lang-switch__input--right:checked ~ & {
+			left: 28px;
+			border-radius: 0 10px 10px 0;
+		}
+	}
+}

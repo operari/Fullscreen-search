@@ -1,0 +1,31 @@
+/**
+ *
+ * Button-overrides
+ *
+ */
+
+
+.mdl-button {
+	&--icon {
+		margin-top: -5px;
+		margin-right: -8px;
+	}
+	&--help {
+		margin: 0 0 0 auto;
+	}
+	&--pay {
+		display: inline-flex;
+		align-items: center;
+		img {
+			display: block;
+			margin-right: 10px;
+		}
+		&.mdl-button--raised {
+			background-color: rgba(255,255,255, 1);
+		}
+		&.is-hidden {
+			display: none;
+		}
+	}
+
+}

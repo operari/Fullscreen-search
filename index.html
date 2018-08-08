@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Fullscreensearch</title>
+	<link rel="stylesheet" href="bundle/bundle.index.min.css">
+	<link rel="icon" type="image/png" href="icon19.png" />
+		<script>
+			(function() {
+					function addFont() {
+							var style = document.createElement('style');
+							style.rel = 'stylesheet';
+							document.head.appendChild(style);
+							style.textContent = localStorage.font_anton;
+					}
+
+					try {
+							if (localStorage.font_anton) {
+									addFont();
+							} else {
+									var request = new XMLHttpRequest();
+									request.open('GET', '/fonts/fonts.woff.css', true);
+
+									request.onload = function() {
+											if (request.status >= 200 && request.status < 400) {
+													localStorage.font_anton = request.responseText;
+
+													addFont();
+											}
+									};
+
+									request.send();
+							}
+					} catch(ex) {
+					}
+			}());
+		</script>
+</head>
+<body>
+	<div class="fs-search">
+		<div><img class="fs-search__logo" src="/icon128.png" width="100" height="100" alt=""></div>
+		<h1 class="fs-search__title"><span>fullscreen</span><span>search</span></h1>
+	</div>
+</body>
+</html
