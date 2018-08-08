@@ -1,0 +1,310 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Fullscreen Search</title>
+		<link rel="stylesheet" type="text/css" href="bundle/bundle.popup.min.css">
+		<script src="bundle/bundle.popup.min.js"></script>
+	</head>
+	<body>
+		<div class="mdl-layout-container fs-search">
+			<div class="mdl-grid">
+				<div class="mdl-cell mdl-cell--no-flex mdl-cell--12-col">
+					<div class="mdl-grid mdl-grid--no-spacing">
+						<div class="mdl-cell mdl-cell--2-col mdl-cell--middle">
+							<h1 class="mdl-typography--text-left" data-lang='{ "en": "Settings", "ru": "Настройки" }'>Settings</h1>
+						</div>
+						<div class="mdl-cell mdl-cell--1-col mdl-cell--middle">
+							<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--help" id="help">
+								<svg class="material-icons" fill="#e88f0c" height="18" viewBox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"/><path d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"/></svg>
+							</button>
+							<div class="mdl-tooltip mdl-tooltip--bottom" for="help" data-lang='{ "en": "Help", "ru": "Помощь" }'>Help</div>
+						</div>
+						<div class="mdl-cell mdl-cell--1-col mdl-cell--middle">
+							<div class="lang-switch">
+								<input type="radio" name="lang" value="en" id="en" class="lang-switch__input lang-switch__input--left" checked>
+								<label for="en" class="lang-switch__label">EN</label>
+								<input type="radio" name="lang" value="ru" id="ru" class="lang-switch__input lang-switch__input--right">
+								<label for="ru" class="lang-switch__label">RU</label>
+								<span class="lang-switch__toggle"></span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="mdl-cell mdl-cell--12-col">
+					<span id="page" data-lang='{ "en": "Page:", "ru": "Страница:" }'>Page:</span>
+					<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="self">
+						<input type="checkbox" id="self" class="mdl-switch__input">
+					</label>
+					<div class="mdl-tooltip mdl-tooltip--right" for="page" data-lang='{ "en": "Open on current page", "ru": "Открывать на текущей странице" }'>Open on current page</div>
+				</div>
+				<div class="mdl-cell mdl-cell--12-col">
+					<span id="show_bg" data-lang='{ "en": "Background:", "ru": "Фон:" }'>Background:</span>
+					<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="background">
+						<input type="checkbox" id="background" class="mdl-switch__input" checked>
+					</label>
+					<div class="mdl-tooltip mdl-tooltip--right" for="show_bg" data-lang='{ "en": "Show background", "ru": "Показывать фон" }'>Show background</div>
+				</div>
+				<div class="mdl-cell mdl-cell--12-col">
+					<span id="show_bg_anim" data-lang='{ "en": "Background animation:", "ru": "Аниация фона:" }'>Background animation:</span>
+					<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="bg_animation">
+						<input type="checkbox" id="bg_animation" class="mdl-switch__input" checked>
+					</label>
+					<div class="mdl-tooltip mdl-tooltip--right" for="show_bg_anim" data-lang='{ "en": "Show background animation", "ru": "Показывать анимацию фона" }'>Show background animation</div>
+				</div>
+				<div class="mdl-cell mdl-cell--12-col">
+					<span id="touch_on" data-lang='{ "en": "Touch:", "ru": "Сенсор:" }'>Touch:</span>
+					<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="touch">
+						<input type="checkbox" id="touch" class="mdl-switch__input" checked>
+					</label>
+					<div class="mdl-tooltip mdl-tooltip--right" for="touch_on" data-lang='{ "en": "Turn on when double-tapping", "ru": "Включать при двойном касании" }'>Turn on when double-tapping</div>
+				</div>
+				<div class="mdl-cell mdl-cell--12-col">
+					<span id="select_searcher" data-lang='{ "en": "Search:", "ru": "Поиск:" }'>Search:</span>
+					<div class="mdl-selectfield mdl-js-selectfield mdl-selectfield--floating-label mdl-selectfield--mini">
+						<select id="search_engine" class="mdl-selectfield__select">
+							<option value="google">google</option>
+							<option value="yandex">yandex</option>
+							<option value="bing">bing</option>
+							<option value="duckduck">duckduck</option>
+							<option value="baidu">baidu</option>
+							<option value="youtube">youtube</option>
+							<option value="github">github</option>
+							<option value="wikipedia">wikipedia</option>
+						</select>
+						<label class="mdl-selectfield__label" for="search_engine"></label>
+					</div>
+					<div class="mdl-tooltip mdl-tooltip--right" for="select_searcher" data-lang='{ "en": "Choose default search engine", "ru": "Выбрать поисковую систему по умолчанию" }'>Choose default search engine</div>
+				</div>
+				<div class="mdl-cell mdl-cell--12-col">
+					<span id="call_keys" data-lang='{ "en": "Call:", "ru": "Вызов:" }'>Call:</span>
+					<div class="mdl-selectfield mdl-js-selectfield mdl-selectfield--floating-label mdl-selectfield--mini mdl-layout-flex">
+						<select id="keys_one" class="mdl-selectfield__select">
+							<option value="Control">Control</option>
+							<option value="Enter">Enter</option>
+							<option value="Shift">Shift</option>
+							<option value="Alt">Alt</option>
+							<option value="q">q</option>
+							<option value="w">w</option>
+							<option value="e">e</option>
+							<option value="r">r</option>
+							<option value="t">t</option>
+							<option value="y">y</option>
+							<option value="u">u</option>
+							<option value="i">i</option>
+							<option value="o">o</option>
+							<option value="p">p</option>
+							<option value="a">a</option>
+							<option value="s">s</option>
+							<option value="d">d</option>
+							<option value="f">f</option>
+							<option value="g">g</option>
+							<option value="h">h</option>
+							<option value="j">j</option>
+							<option value="k">k</option>
+							<option value="k">k</option>
+							<option value="l">l</option>
+							<option value="z">z</option>
+							<option value="x">x</option>
+							<option value="c">c</option>
+							<option value="v">v</option>
+							<option value="b">b</option>
+							<option value="n">n</option>
+							<option value="m">m</option>
+							<option value="`">`</option>
+							<option value="[">[</option>
+							<option value="]">]</option>
+							<option value="\">\</option>
+							<option value=";">;</option>
+							<option value=";">;</option>
+							<option value="'">'</option>
+							<option value=",">,</option>
+							<option value=".">.</option>
+							<option value="/">/</option>
+							<option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+						</select>
+						<select id="keys_two" class="mdl-selectfield__select">
+							<option value="Control">Control</option>
+							<option value="Enter">Enter</option>
+							<option value="Shift">Shift</option>
+							<option value="Alt">Alt</option>
+							<option value="q">q</option>
+							<option value="w">w</option>
+							<option value="e">e</option>
+							<option value="r">r</option>
+							<option value="t">t</option>
+							<option value="y">y</option>
+							<option value="u">u</option>
+							<option value="i">i</option>
+							<option value="o">o</option>
+							<option value="p">p</option>
+							<option value="a">a</option>
+							<option value="s">s</option>
+							<option value="d">d</option>
+							<option value="f">f</option>
+							<option value="g">g</option>
+							<option value="h">h</option>
+							<option value="j">j</option>
+							<option value="k">k</option>
+							<option value="k">k</option>
+							<option value="l">l</option>
+							<option value="z">z</option>
+							<option value="x">x</option>
+							<option value="c">c</option>
+							<option value="v">v</option>
+							<option value="b">b</option>
+							<option value="n">n</option>
+							<option value="m">m</option>
+							<option value="`">`</option>
+							<option value="[">[</option>
+							<option value="]">]</option>
+							<option value="\">\</option>
+							<option value=";">;</option>
+							<option value=";">;</option>
+							<option value="'">'</option>
+							<option value=",">,</option>
+							<option value=".">.</option>
+							<option value="/">/</option>
+							<option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+						</select>
+					</div>
+					<div class="mdl-tooltip mdl-tooltip--right" for="call_keys" data-lang='{ "en": "Calling the search string (chrome hotkeys are not override)", "ru": "Вызов строки поиска (горячие клавиши хрома не переопределяются)" }'>Calling the search string</div>
+				</div>
+				<div class="mdl-cell mdl-cell--12-col">
+					<span id="exc" data-lang='{ "en": "Excludes:", "ru": "Исключения:" }'>Excludes:</span>
+					<div class="mdl-tooltip mdl-tooltip--right" for="exc" data-lang='{ "en": "Exclude sites:", "ru": "Исключить сайты:" }'>Exclude sites:</div>
+					<div class="mdl-grid mdl-grid--no-spacing">
+						<div class="mdl-cell mdl-cell--12-col">
+							<div class="mdl-textfield mdl-textfield--mini mdl-js-textfield mdl-textfield--floating-label">
+								<input class="mdl-textfield__input mdl-textfield__input--popup" type="text" id="exclude">
+							</div>
+							<button class="mdl-button mdl-js-button mdl-button--icon" id="exclude_approve">
+								<svg class="material-icons" fill="#e88f0c" height="18" viewBox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"/><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+							</button>
+						</div>
+						<div class="mdl-cell mdl-cell--12-col">
+							<div class="mdl-selectfield mdl-js-selectfield mdl-selectfield--floating-label mdl-selectfield--mini mdl-selectfield--full">
+								<select id="exclude_urls" class="mdl-selectfield__select">
+									<option value="linkedin.com">linkedin.com</option>
+								</select>
+								<label class="mdl-selectfield__label" for="exclude_urls"></label>
+							</div>
+							<button class="mdl-button mdl-js-button mdl-button--icon" id="remove_exclude">
+								<svg class="material-icons" fill="#e88f0c" height="18" viewBox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"/><path d="M7 11v2h10v-2H7zm5-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
+							</button>
+						</div>
+					</div>
+				</div>
+				<div class="mdl-cell mdl-cell--12-col">
+					<span id="short" data-lang='{ "en": "Shortcuts:", "ru": "Сокращения:" }'>Shortcuts:</span>
+					<div class="mdl-tooltip mdl-tooltip--right" for="short" data-lang='{ "en": "Add custom shortcuts. <br>Examples:<br> shortcut:domain.zone (without search param); <br>shortcut:domain.zone/?search_param= (with search param)", "ru": "Добавить пользовательские сокращения. <br>Примеры:<br> shortcut:domain.zone (без параметра поиска); <br>shortcut:domain.zone/?search_param= (с параметром поиска)" }'>Add custom shortcuts. Examples: shortcut:domain.zone (without search param); shortcut:domain.zone/?search_param= (with search param)</div>
+					<div class="mdl-grid mdl-grid--no-spacing">
+						<div class="mdl-cell mdl-cell--12-col">
+							<div class="mdl-textfield mdl-textfield--mini mdl-js-textfield mdl-textfield--floating-label">
+								<input class="mdl-textfield__input mdl-textfield__input--popup" type="text" id="shortcut_inp">
+							</div>
+							<button class="mdl-button mdl-js-button mdl-button--icon" id="shortcut_approve">
+								<svg class="material-icons" fill="#e88f0c" height="18" viewBox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"/><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+							</button>
+						</div>
+						<div class="mdl-cell mdl-cell--12-col">
+							<div class="mdl-selectfield mdl-js-selectfield mdl-selectfield--floating-label mdl-selectfield--mini mdl-selectfield--full">
+								<select id="shortcuts" class="mdl-selectfield__select">
+									<option value="f:facebook.com">f:facebook.com</option>
+								</select>
+								<label class="mdl-selectfield__label" for="shortcuts"></label>
+							</div>
+							<button class="mdl-button mdl-js-button mdl-button--icon" id="remove_shortcut">
+								<svg class="material-icons" fill="#e88f0c" height="18" viewBox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"/><path d="M7 11v2h10v-2H7zm5-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
+							</button>
+						</div>
+					</div>
+				</div>
+				<div class="mdl-cell mdl-cell--12-col">
+					<button id="btn_support" data-lang='{ "en": "Support", "ru": "Поддержка" }' class="mdl-button mdl-button--accent mdl-button--raised">
+						<span>Support</span>
+					</button>
+					<button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent mdl-button--raised" id="test_settings" data-lang='{ "en": "Test", "ru": "Тест" }' disabled>Test</button>
+				</div>
+			</div>
+			<div class="mdl-grid help is-hidden">
+				<button class="mdl-button mdl-js-button mdl-button--icon help__close" id="help_close">
+					<svg class="material-icons" fill="#000000" height="18" viewBox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/><path d="M0 0h24v24H0z" fill="none"/></svg>
+				</button>
+				<div class="mdl-cell mdl-cell--12-col">
+					<p data-lang='{ "en": "Please remember that the following commands only work on pages that were loaded using one of the http://, https:// or file:// protocols.", "ru": "Помните, что следующие команды работают только на страницах, которые были загружены с использованием одного из протоколов http: //, https: // или file: //." }'>Please remember that the following commands only work on pages that were loaded using one of the http://, https:// or file:// protocols.</p>
+					<table>
+						<caption data-lang='{ "en": "Keyboard:", "ru": "Клавиатура:" }'>Keyboard:</caption>
+						<tr>
+							<td><code>Ctrl + Enter</code></td>
+							<td data-lang='{ "en": "Show search", "ru": "Показать поиск" }'>Show search</td>
+						</tr>
+						<tr>
+							<td><code>Esc</code></td>
+							<td data-lang='{ "en": "Close search; Close tabs", "ru": "Закрыть поиск; Закрыть вкладки"}'>Close search; Close tabs</td>
+						</tr>
+						<tr>
+							<td><code>Ctrl + ArrowDown</code></td>
+							<td data-lang='{ "en": "Show tabs; Close Tabs", "ru": "Показать табы; Показать вкладки" }'>Show tabs; Close Tabs</td>
+						</tr>
+						<tr>
+							<td>
+								<code>Ctrl + ArrowUp</code>
+							</td>
+							<td data-lang='{ "en": "Show tabs; Close Tabs", "ru": "Показать табы; Показать вкладки" }'>Show tabs; Close Tabs</td>
+						</tr>
+						<tr>
+							<td><code>Enter</code></td>
+							<td data-lang='{ "en": "Execute query in search", "ru": "Выполнить запрос в поиске" }'>Execute query in search</td>
+						</tr>
+						<tr>
+							<td><code>F</code></td>
+							<td data-lang='{ "en": "Focus caret in the search", "ru": "Сфокусировать каретку в поиске" }'>Focus caret in the search</td>
+						</tr>
+						<tr>
+							<td><code>Delete</code></td>
+							<td data-lang='{ "en": "Remove suggest; Close tab", "ru": "Удалить подсказку; Закрыть вкладку" }'>Remove suggest; Close tab</td>
+						</tr>
+						<tr>
+							<td><code>ArrowUp</code></td>
+							<td data-lang='{ "en": "Move up in suggests; Move up in tabs", "ru": "Переместиться вверх в подсказках; Переместиться вверх в табах" }'>Move up in suggests; Move up in tabs</td>
+						</tr>
+						<tr>
+							<td><code>ArrowDown</code></td>
+							<td data-lang='{ "en": "Move down in suggests; Move down in tabs", "ru": "Переместиться вниз в подсказках; Переместиться вниз в табах" }'>Move down in suggests; Move down in tabs</td>
+						</tr>
+					</table>
+					<table>
+						<caption data-lang='{ "en": "Touch:", "ru": "Сенсор:" }'>Touch:</caption>
+						<tr>
+							<td data-lang='{ "en": "<code>Double touch (quickly)</code>", "ru": "<code>Двойное касание (быстро)</code>" }'><code>Double touch (quickly)</code></td>
+							<td data-lang='{ "en": "Show search; Close search; Close tabs", "ru": "Показать поиск; Закрыть вкладки" }'>Show search; Close search; Close tabs</td>
+						</tr>
+						<tr>
+							<td data-lang='{ "en": "<code>Triple touch (synchronously)</code>", "ru": "<code>Тройное касание (синхронно)</code>" }'><code>Triple touch (synchronously)</code></td>
+							<td data-lang='{ "en": "Show tabs", "ru": "Показать вкладки" }'>Show tabs</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

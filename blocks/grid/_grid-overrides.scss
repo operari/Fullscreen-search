@@ -1,0 +1,26 @@
+/**
+ *
+ * Grid-overrides
+ *
+ */
+
+.fs-search .mdl-grid:not(.help) .mdl-cell {
+	display: flex;
+	justify-content: space-between;
+}
+
+.fs-search .mdl-cell--flex-row {
+	display: flex;
+}
+
+.fs-search .mdl-cell--no-spacing-top {
+	margin-top: 0;
+}
+
+.fs-search .mdl-cell--no-spacing-bot {
+	margin-bottom: 0;
+}
+
+.fs-search .mdl-cell.mdl-cell--no-flex {
+	display: block !important;
+}

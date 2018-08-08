@@ -1,0 +1,35 @@
+#!/usr/bin/env node
+
+var program = require('commander');
+var t = '\x1b[33m'; // title color
+var r = '\x1b[0m'; // reset
+var b = '\x1b[1m'; // underscore
+var u = '\x1b[4m'; // bright
+var y = '\x1b[35m'; // yellow
+var w = '\x1b[37m'; // white
+
+// space repeat
+var rp = function(n) {
+	return ' '.repeat(n);
+};
+
+program
+  .version('1.0.0')
+  .option('-a, --arguments', 'show description of the gulp arguments')
+  .parse(process.argv);
+
+console.log(u+b+'%s'+r, '\nGulp arguments:\n');
+console.log(t+'%s'+r, 'Usage:');
+console.log('  gulp [taskname] [--'+t+b+'argument'+r+'='+w+'param]'+r+'\n');
+
+if (program.arguments) {
+	console.log(t+'%s'+r, 'Available commands:');
+	console.log(rp(2)+t+'component:'+r,  '\n'+rp(4)+'[js|sass|default] ['+t+b+'select'+r+' '+w+'content|popup|donate|index'+r+']'+rp(20)+'Select component for build');
+	console.log(rp(2)+t+'copy:'+r,
+		`\n${rp(4)}[mod-copy] [${t+b}mod${r} (path to the module,
+		${rp(10)}default: material-design-lite/src/) ${w}string${r};
+		${t+b}block${r} (folder name for copying) ${w}string${r};
+		${t+b}ext${r} (file extension, default: js|scss) ${w}string${r};
+		${t+b}out${r} (path to the working folder, default: blocks/) ${w}string${r}]${rp(3)}Сreate a block from the specified module\n`
+	);
+}

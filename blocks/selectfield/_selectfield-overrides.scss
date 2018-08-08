@@ -1,0 +1,49 @@
+$mclass-mini: '.mdl-selectfield--mini';
+$mclass-full: '.mdl-selectfield--full';
+$mclass-currency: '.mdl-selectfield--currency';
+
+.mdl-selectfield {
+	&--mini {
+		width: auto;
+		min-width: 30px;
+		padding: 0;
+	}
+	&--currency {
+		position: absolute;
+		top: 33px;
+		left: 0;
+		@media (min-width: 701px) {
+			top: 0;
+		}
+	}
+	&--full {
+		width: 100%;
+		padding: 0 10px 0 15px;
+	}
+	&__label {
+		#{$mclass-mini} &::after {
+			bottom: 0;
+		}
+		#{$mclass-full}.is-focused &::after {
+			left: 15px;
+			width: calc(100% - 25px);
+			bottom: 5px;
+		}
+	}
+	&__select {
+		font-size: 14px;
+		padding-left: 5px;
+		#{$mclass-mini} & {
+			padding-top: 2px;
+			padding-bottom: 2px;
+		}
+		#{$mclass-currency} & {
+			font-size: 16px;
+			position: relative;
+			z-index: 2;
+			padding-right: 5px;
+			color: rgba(0, 0, 0, .87);
+			border-bottom-color: #5d5d5d;
+		}
+	}
+}

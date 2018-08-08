@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>Support</title>
+	<link rel="stylesheet" href="bundle/bundle.donate.min.css">
+	<script src="bundle/bundle.donate.min.js"></script>
+</head>
+<body>
+	<div class="mdl-layout-center">
+		<div class="spinner-wrp is-hidden">
+			<div class="mdl-spinner mdl-js-spinner is-active" id="spinner"></div>
+		</div>
+		<div class="mdl-grid">
+			<div class="mdl-cell mdl-cell--12-col">
+				<div class="mdl-card mdl-card--full-width mdl-shadow--2dp">
+					<div class="mdl-card__title">
+						<h2 class="mdl-card__title-text" data-lang='{ "en": "Support fullscreen search!", "ru": "Поддержите fullscreen search!" }'>Support fullscreen search!</h2>
+					</div>
+					<div class="mdl-card__supporting-text">
+						<div class="mdl-layout-collapse" data-lang='{ "en": "<p>Each of us can contribute to make the Fullscreen search better for everyone!</p>", "ru": "<p>Каждый из нас может помочь сделать Fullscreen Search лучше для всех!</p>" }'><p>Each of us can contribute to make the Fullscreen search better for everyone!</p></div>
+						<div class="mdl-layout-relative">
+							<div class="mdl-selectfield mdl-js-selectfield mdl-selectfield--floating-label mdl-selectfield--mini mdl-selectfield--currency">
+								<select class="mdl-selectfield__select" id="select_currency"></select>
+							</div>
+							<input class="mdl-slider mdl-js-slider" id="range" type="range" min="1" max="100" value="10" tabindex="0">
+							<span id="amount_view" class="mdl-card__amount">10</span>
+						</div>
+					</div>
+					<div class="mdl-card__actions mdl-card--border">
+
+						<div class="mdl-grid mdl-grid--no-spacing">
+							<div class="mdl-cell mdl-cell--2-col">
+								<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+
+									<input type="hidden" name="business" value="TL9TKP832WX9W">
+									<input type="hidden" name="cmd" value="_donations">
+
+									<input type="hidden" name="item_name" value="Fullscreen Search">
+									<input type="hidden" name="amount" value="10.00">
+									<input type="hidden" name="currency_code" value="USD">
+									<input type="hidden" name="no_shipping" value="1">
+
+									<button class="mdl-button mdl-button--pay mdl-button--raised">
+										<span><img src="img/paypal.png" alt="Donate"></span>
+										<span>PAYPAL</span>
+									</button>
+
+								</form>
+
+								<!-- <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
+
+									<input type="hidden" name="business" value="syntaxorange-seller@gmail.com">
+									<input type="hidden" name="cmd" value="_donations">
+
+									<input type="hidden" name="item_name" value="Fullscreensearch">
+									<input type="hidden" name="amount" value="10.00">
+									<input type="hidden" name="currency_code" value="USD">
+									<input type="hidden" name="no_shipping" value="1">
+
+									<button class="mdl-button mdl-button--pay mdl-button--raised" id="paypal">
+										<span>
+											<img src="img/paypal.png" alt="Donate"></span>
+										<span>PAYPAL</span>
+									</button>
+								</form> -->
+							</div>
+							<div class="mdl-cell mdl-cell--2-col">
+								<button class="mdl-button mdl-button--pay mdl-button--raised is-hidden" id="funding">
+									<span><img src="img/ya.png" alt="Donate"></span>
+									<span>КАРТОЧКА,КОШЕЛЕК...</span>
+								</button>
+							</div>
+							<div class="mdl-cell mdl-cell--12-col">
+								<div id="iframe_place"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

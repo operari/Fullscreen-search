@@ -1,0 +1,75 @@
+/**
+ *
+ * help
+ *
+ */
+
+.help {
+	position: absolute;
+	z-index: 100;
+	line-height: 1.4;
+	top: 0;
+	left: 0;
+	overflow: auto;
+	box-sizing: border-box;
+	width: 100%;
+	height: 100%;
+	padding-top: 30px;
+	transition: all .2s linear;
+	background-color: rgba(255,255,255,1);
+
+	&.is-hidden {
+		left: -100%;
+	}
+
+	p {
+		font-size: 13px;
+		line-height: 1.4;
+	}
+
+	&__close {
+		position: absolute;
+		z-index: 1;
+		top: 13px;
+		right: 13px;
+	}
+
+	table {
+		width: 100%;
+		color: #666666;
+		&:last-child {
+			margin-bottom: 15px;
+		}
+	}
+
+	tr td:first-child {
+		min-width: 135px;
+	}
+
+	tr td:last-child {
+		padding-left: 10px;
+	}
+
+	td {
+		font-size: 13px;
+		padding: 5px 0;
+	}
+
+	caption {
+		font-weight: 700;
+		padding-bottom: 5px;
+		text-indent: 5px;
+		text-align: left;
+	}
+
+	code {
+		font-size: 13px;
+		box-sizing: border-box;
+		display: block;
+		width: 100%;
+		padding: 2px 5px;
+		text-align: center;
+		color: #666666;
+		background-color: #eeeeee;
+	}
+}

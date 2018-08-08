@@ -1,0 +1,27 @@
+
+.mdl-slider {
+	&__container {
+		max-width: 200px;
+		margin: 10px 0 30px -36px;
+		transform: scale(1.5);
+		transform-origin: left;
+		border: 1px solid transparent;
+		@media (min-width: 501px) {
+			max-width: 300px;
+		}
+		@media (min-width: 701px) {
+			max-width: 400px;
+			margin-left: 29px;
+			margin-bottom: 10px;
+		}
+	}
+	&__background-flex {
+		left: 6px;
+		width: calc(100% - 58px);
+		background-image: linear-gradient(left, #f00 3%,#ff0 20%,#0f0 100%);
+	}
+	&__background-upper {
+		background: transparent;
+	}
+}
+
